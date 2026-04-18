@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FonoCare | Edição Premium 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        premium: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            950: '#020617',
+                        },
+                        accent: {
+                            light: '#7dd3fc',
+                            DEFAULT: '#0ea5e9',
+                            dark: '#0369a1',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'reveal': 'reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        reveal: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .mesh-gradient {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(200,100%,95%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(210,100%,90%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(190,100%,95%,1) 0, transparent 50%);
+        }
+        .grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .bento-card {
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 30px 60px -12px rgba(15, 23, 42, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-premium-50 text-premium-950 selection:bg-accent selection:text-white font-sans overflow-x-hidden">
+    
+    <!-- Efeito de Textura (Grain) -->
+    <div class="grain"></div>
+
+    <!-- Floating Navbar -->
+    <div class="fixed top-6 left-0 right-0 z-[100] px-4 animate-fade-in-up">
+        <nav class="max-w-5xl mx-auto glass rounded-full py-3 px-6 flex justify-between items-center shadow-2xl">
+            <div class="flex items-center gap-2">
+                <div class="bg-premium-600 p-1.5 rounded-lg">
+                    <i class="fa-solid fa-ear-listen text-white text-lg"></i>
+                </div>
+                <span class="font-heading font-extrabold text-xl tracking-tight">FonoCare</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#inicio" class="hover:text-accent transition-colors">Início</a>
+                <a href="#servicos" class="hover:text-accent transition-colors">Especialidades</a>
+                <a href="#sobre" class="hover:text-accent transition-colors">Dra. Ana</a>
+                <a href="#depoimentos" class="hover:text-accent transition-colors">Feedback</a>
+            </div>
+
+            <a href="#contato" class="bg-premium-950 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-premium-800 transition shadow-lg hover:shadow-accent/20">
+                Agendar Agora
+            </a>
+
+            <!-- Mobile Menu Switch -->
+            <button class="md:hidden text-premium-950 p-2">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Hero 2.0 -->
+    <section id="inicio" class="mesh-gradient min-h-screen flex items-center pt-24 pb-12 overflow-hidden relative">
+        <div class="absolute top-40 -left-20 w-96 h-96 bg-accent-light opacity-20 blur-[120px] rounded-full animate-pulse-slow"></div>
+        <div class="absolute bottom-20 -right-20 w-80 h-80 bg-blue-300 opacity-20 blur-[100px] rounded-full animate-pulse-slow"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div class="animate-fade-in-up" style="animation-delay: 0.2s">
+                <div class="inline-flex items-center gap-2 bg-white/50 border border-white/50 px-4 py-1.5 rounded-full text-sm font-semibold text-premium-700 mb-8 backdrop-blur-sm">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                    </span>
+                    Excelência em Comunicação Humana
+                </div>
+                <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8">
+                    Sua voz é o seu <span class="text-gradient">superpoder.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-xl leading-relaxed">
+                    Elevamos sua comunicação a um novo patamar através de técnicas avançadas e atendimento personalizado. Ciência, arte e acolhimento em um só lugar.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="#contato" class="bg-premium-600 text-white px-8 py-5 rounded-2xl text-lg font-bold shadow-2xl shadow-premium-600/30 hover:bg-premium-700 transition transform hover:-translate-y-1 text-center">
+                        Reservar Consulta <i class="fa-solid fa-calendar-check ml-2"></i>
+                    </a>
+                    <a href="#servicos" class="bg-white text-premium-950 border border-slate-200 px-8 py-5 rounded-2xl text-lg font-bold hover:bg-slate-50 transition transform hover:-translate-y-1 text-center">
+                        Explorar Especialidades
+                    </a>
+                </div>
+                
+                <div class="mt-12 flex items-center gap-4 animate-fade-in-up" style="animation-delay: 0.6s">
+                    <div class="flex -space-x-4">
+                        <img src="https://i.pravatar.cc/100?u=1" class="w-10 h-10 rounded-full border-4 border-white object-cover">
+                        <img src="https://i.pravatar.cc/100?u=2" class="w-10 h-10 rounded-full border-4 border-white object-cover">
+                        <img src="https://i.pravatar.cc/100?u=3" class="w-10 h-10 rounded-full border-4 border-white object-cover">
+                    </div>
+                    <div class="text-sm">
+                        <span class="font-bold text-premium-950">+1.200</span> <span class="text-slate-500 font-medium">vidas transformadas este ano</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative animate-float">
+                <div class="absolute inset-0 bg-accent rounded-[3rem] blur-[80px] opacity-10"></div>
+                <div class="relative rounded-[3rem] border-[16px] border-white/50 overflow-hidden shadow-2xl backdrop-blur-md">
+                    <!-- Utilizando a imagem gerada na primeira requisição -->
+                    <img src="assets/hero.png" alt="Tratamento Fonoaudiológico Premium" class="w-full h-full object-cover">
+                </div>
+                <!-- Elements Float -->
+                <div class="absolute -top-6 -right-6 glass p-5 rounded-3xl shadow-xl animate-pulse-slow hidden sm:block">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-green-500 w-10 h-10 rounded-2xl flex items-center justify-center text-white">
+                            <i class="fa-solid fa-check-double"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Resultado</p>
+                            <p class="font-bold">Evolução 100%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Services -->
+    <section id="servicos" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
+                <div class="max-w-2xl">
+                    <span class="text-accent font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Frentes de Atuação</span>
+                    <h2 class="font-heading text-4xl md:text-6xl font-extrabold text-premium-950">Ecossistema de Cuidados Específicos</h2>
+                </div>
+                <p class="text-slate-500 text-lg max-w-sm mb-2">
+                    Abordagens modernas para cada fase da jornada comunicativa humana.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bento Card 1: Large -->
+                <div class="md:col-span-2 bento-card bg-slate-50 rounded-[2.5rem] p-10 flex flex-col justify-between overflow-hidden relative group">
+                    <div class="absolute top-0 right-0 p-10 opacity-10 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-child-reaching text-[120px]"></i>
+                    </div>
+                    <div>
+                        <div class="bg-white w-14 h-14 rounded-2xl shadow-sm flex items-center justify-center text-premium-600 text-xl mb-8">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="font-heading text-3xl font-bold mb-4">Linguagem Infantil</h3>
+                        <p class="text-slate-600 text-lg leading-relaxed max-w-md">
+                            Tratamentos lúdicos e neurocientíficos para destravar o potencial comunicativo de crianças e adolescentes.
+                        </p>
+                    </div>
+                    <div class="mt-12">
+                        <ul class="flex flex-wrap gap-2">
+                            <li class="bg-white px-4 py-2 rounded-full text-xs font-bold border border-slate-100 italic">#AtrasoDeFala</li>
+                            <li class="bg-white px-4 py-2 rounded-full text-xs font-bold border border-slate-100 italic">#Aprendizagem</li>
+                            <li class="bg-white px-4 py-2 rounded-full text-xs font-bold border border-slate-100 italic">#Motricidade</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bento Card 2: Square -->
+                <div class="bento-card bg-premium-950 text-white rounded-[2.5rem] p-10 flex flex-col group justify-between">
+                    <div class="bg-white/10 w-14 h-14 rounded-2xl flex items-center justify-center text-accent text-xl mb-8 border border-white/10">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-3xl font-bold mb-4 leading-tight">Voz Profissional</h3>
+                        <p class="text-slate-400 leading-relaxed">
+                            Mentoria vocal para líderes, professores e artistas que desejam domínio total sobre sua projeção.
+                        </p>
+                    </div>
+                    <a href="#" class="mt-8 flex items-center justify-between group-hover:bg-accent p-2 rounded-full transition-all">
+                        <span class="ml-2 font-bold">Saiba mais</span>
+                        <div class="bg-white w-10 h-10 rounded-full flex items-center justify-center text-premium-950">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Bento Card 3: Square -->
+                <div class="bento-card border border-slate-200 rounded-[2.5rem] p-10 flex flex-col justify-between hover:bg-slate-50">
+                    <div class="bg-accent/10 w-14 h-14 rounded-2xl flex items-center justify-center text-accent text-xl mb-8">
+                        <i class="fa-solid fa-ear-deaf"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-3xl font-bold mb-4">Reabilitação Auditiva</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Acompanhamento especializado para o processamento auditivo, triagem e adequação de rotina.
+                        </p>
+                    </div>
+                    <div class="mt-8 h-1 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div class="bg-accent h-full w-2/3"></div>
+                    </div>
+                </div>
+
+                <!-- Bento Card 4: Long -->
+                <div class="md:col-span-2 bento-card bg-[#e0f2fe] rounded-[2.5rem] p-10 flex items-center justify-between overflow-hidden relative">
+                    <div class="flex-1 z-10">
+                        <h3 class="font-heading text-3xl font-bold mb-4">Motricidade Orofacial</h3>
+                        <p class="text-slate-700 leading-relaxed max-w-sm">
+                            Equilíbrio funcional dos músculos da face, respiração e deglutição, integrando estética e saúde.
+                        </p>
+                    </div>
+                    <div class="flex-1 hidden sm:flex justify-end transform rotate-12 opacity-40">
+                        <i class="fa-solid fa-face-smile text-[180px] text-premium-600"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section 2.0 -->
+    <section id="sobre" class="py-32 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-20">
+                <div class="lg:w-1/2 relative group">
+                    <div class="absolute -inset-4 bg-accent/20 rounded-[4rem] blur-2xl group-hover:bg-accent/30 transition-all"></div>
+                    <div class="relative rounded-[3.5rem] overflow-hidden shadow-2xl">
+                        <!-- Imagem de perfil gerada pela IA -->
+                        <img src="assets/perfil.png" alt="Dra. Ana Silva" class="w-full aspect-[4/5] object-cover hover:scale-105 transition duration-700">
+                    </div>
+                    <!-- Badge -->
+                    <div class="absolute bottom-10 -right-10 glass p-8 rounded-[2.5rem] shadow-2xl max-w-xs animate-float hidden md:block">
+                        <p class="font-heading text-2xl font-bold text-premium-950 mb-1">10+ Anos</p>
+                        <p class="text-slate-500 font-medium">De experiência clínica acelerando resultados.</p>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <span class="text-accent-dark font-bold tracking-[0.2em] uppercase text-xs mb-4 block">A Mente por trás</span>
+                    <h2 class="font-heading text-5xl md:text-6xl font-extrabold text-premium-950 mb-8 leading-tight">Dra. Ana Silva</h2>
+                    <div class="space-y-6 text-lg text-slate-600 leading-relaxed italic">
+                        <p>
+                            "Minha missão ultrapassa o diagnóstico. Eu construo pontes onde antes existiam barreiras comunicativas, devolvendo a plena qualidade vida a cada um."
+                        </p>
+                    </div>
+                    <div class="mt-10 space-y-6 text-lg text-slate-600 leading-relaxed">
+                        <p>
+                            Especialista formada pelas melhores instituições, a Dra. Ana combina técnica rigorosa com uma sensibilidade rara. Seu método autoral já ajudou centenas de profissionais a conquistarem autoridade vocal e crianças a encontrarem sua voz no mundo.
+                        </p>
+                        <div class="pt-8 border-t border-slate-200 grid grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-premium-950 text-xl font-heading mb-2">Fundamento</h4>
+                                <p class="text-sm">Neurociência aplicada à comunicação.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-premium-950 text-xl font-heading mb-2">Abordagem</h4>
+                                <p class="text-sm">Tratamentos 100% personalizados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Premium -->
+    <section id="depoimentos" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="font-heading text-4xl md:text-6xl font-extrabold text-premium-950 mb-4">Vozes que ecoam sucesso.</h2>
+                <p class="text-slate-500 text-xl">Feedback de quem viveu a experiência transformadora da FonoCare.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Testimonial 1 -->
+                <div class="glass p-10 rounded-[3rem] shadow-sm hover:shadow-xl transition-all border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-accent gap-1 mb-8">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xl text-premium-950 font-medium leading-relaxed mb-10">
+                            "O atendimento superou minhas expectativas. Em pouco tempo, meu filho em terapia de linguagem infantil evoluiu o que não havia conseguido em meses em outros locais."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-accent/20 rounded-2xl flex items-center justify-center font-bold text-accent">MC</div>
+                        <div>
+                            <p class="font-bold text-premium-950">Mariana Costa</p>
+                            <p class="text-sm text-slate-500">Mãe de Paciente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-premium-950 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 p-8 opacity-20">
+                        <i class="fa-solid fa-quote-right text-6xl"></i>
+                    </div>
+                    <div>
+                        <div class="flex text-accent gap-1 mb-8">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xl text-white font-medium leading-relaxed mb-10">
+                            "Como palestrante, a Dra. Ana me ensinou a projetar autoridade através da voz profissional. Uma virada de chave no meu desempenho e confiança."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center font-bold text-white border border-white/20">RA</div>
+                        <div>
+                            <p class="font-bold">Roberto Almeida</p>
+                            <p class="text-sm text-slate-400">Speaker & Consultor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass p-10 rounded-[3rem] shadow-sm hover:shadow-xl transition-all border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-accent gap-1 mb-8">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xl text-premium-950 font-medium leading-relaxed mb-10">
+                            "O acompanhamento constante e atencioso me ajudaram a entender minha reabilitação auditiva. Me devolveu a vontade de interagir muito mais. Obrigado!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-accent-light/30 rounded-2xl flex items-center justify-center font-bold text-accent-dark">CM</div>
+                        <div>
+                            <p class="font-bold text-premium-950">Carlos Mendes</p>
+                            <p class="text-sm text-slate-500">Engenheiro Sênior</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Footer -->
+    <footer id="contato" class="bg-premium-950 text-white pt-32 pb-16 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-20">
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-3 mb-10">
+                        <div class="bg-accent p-2 rounded-xl">
+                            <i class="fa-solid fa-ear-listen text-2xl text-white"></i>
+                        </div>
+                        <span class="font-heading font-extrabold text-3xl tracking-tight">FonoCare</span>
+                    </div>
+                    <h4 class="text-3xl font-heading font-bold mb-8 max-w-sm">Pronto para elevar sua comunicação?</h4>
+                    <p class="text-slate-400 text-lg mb-10 leading-relaxed">
+                        Estamos localizados no coração da cidade, com infraestrutura de ponta aguardando por você para um atendimento acolhedor.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-accent transition group">
+                            <i class="fa-brands fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-accent transition">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-accent transition">
+                            <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-2 lg:grid-cols-3 gap-12">
+                    <div>
+                        <h5 class="font-bold text-lg mb-8 text-slate-200">Clínica</h5>
+                        <ul class="space-y-4 text-slate-400 font-medium">
+                            <li><a href="#inicio" class="hover:text-accent transition">Início</a></li>
+                            <li><a href="#servicos" class="hover:text-accent transition">Especialidades</a></li>
+                            <li><a href="#depoimentos" class="hover:text-accent transition">Depoimentos</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-lg mb-8 text-slate-200">Legal</h5>
+                        <ul class="space-y-4 text-slate-400 font-medium">
+                            <li><a href="#" class="hover:text-accent transition">Termos de Uso</a></li>
+                            <li><a href="#" class="hover:text-accent transition">Ética Médica</a></li>
+                            <li><a href="#" class="hover:text-accent transition">Privacidade</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-span-2 lg:col-span-1">
+                        <h5 class="font-bold text-lg mb-8 text-slate-200">Contato</h5>
+                        <p class="text-slate-400 leading-relaxed mb-2">
+                            Ed. Santé, Sala 1201.<br>São Paulo, SP
+                        </p>
+                        <p class="text-accent font-bold text-lg">(11) 98765-4321</p>
+                        <p class="text-slate-400 leading-relaxed mt-2 text-sm">
+                            contato@fonocare.com.br
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-16 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+                <p class="text-slate-500 text-sm italic">
+                    &copy; 2026 FonoCare. Especialistas em Reabilitação e Voz. 
+                </p>
+                <div class="flex items-center gap-2 text-slate-500 text-sm">
+                    Design Premium <span class="text-accent">●</span> Acolhendo sua comunicação
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Adicionais -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
